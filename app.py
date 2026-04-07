@@ -1,12 +1,11 @@
 import streamlit as st
-import joblib
 import pandas as pd
+import lightgbm as lgb
 
-model = joblib.load('model_bitcoin.pkl')
+model = lgb.Booster(model_file='model_bitcoin.txt')
 
 st.title("Prediksi Harga Bitcoin 💰")
 
-# Input
 open_price = st.number_input("Open Price")
 high = st.number_input("High")
 low = st.number_input("Low")
@@ -17,5 +16,4 @@ if st.button("Prediksi"):
                         columns=['Open', 'High', 'Low', 'Volume'])
     
     pred = model.predict(data)
-    
     st.success(f"Hasil Prediksi: {pred[0]:,.2f}")
