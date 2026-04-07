@@ -15,8 +15,9 @@ volume = st.number_input("Volume")
 if st.button("Prediksi"):
     data = pd.DataFrame([[open_price, high, low, volume]],
                         columns=['Open', 'High', 'Low', 'Volume'])
+    st.write(data)
     
     pred = model.predict(data)
     
     st.success(f"Prediksi Harga Bitcoin Besok: {pred[0]:,.2f}")
-st.write(data)
+
