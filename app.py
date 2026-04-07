@@ -4,7 +4,8 @@ import lightgbm as lgb
 
 model = lgb.Booster(model_file='model_bitcoin.txt')
 
-st.title("Prediksi Harga Bitcoin 💰")
+st.title("Prediksi Harga Bitcoin 🪙")
+st.write("Masukkan data hari ini untuk memprediksi harga Bitcoin besok")
 
 open_price = st.number_input("Open Price")
 high = st.number_input("High")
@@ -16,4 +17,5 @@ if st.button("Prediksi"):
                         columns=['Open', 'High', 'Low', 'Volume'])
     
     pred = model.predict(data)
-    st.success(f"Hasil Prediksi: {pred[0]:,.2f}")
+    
+    st.success(f"Prediksi Harga Bitcoin Besok: {pred[0]:,.2f}")
