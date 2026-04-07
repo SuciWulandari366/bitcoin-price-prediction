@@ -1,22 +1,18 @@
 import streamlit as st
 import joblib
 import numpy as np
+import pandas as pd
 
-# Load model
 model = joblib.load('model_bitcoin.pkl')
 
-# Judul
 st.title("Prediksi Harga Bitcoin 💰")
 
-st.write("Masukkan data untuk prediksi")
-
-# Input
 open_price = st.number_input("Open Price", value=0.0)
 volume = st.number_input("Volume", value=0.0)
 
-# Tombol prediksi
 if st.button("Prediksi"):
-    data = np.array([[open_price, volume]])
+    data = pd.DataFrame([[open_price, volume]], columns=['Open', 'Volume'])
+    
     pred = model.predict(data)
     
-    st.success(f"Prediksi Harga Bitcoin: {pred[0]:,.2f}")
+    st.success(f"Hasil Prediksi: {pred[0]:,.2f}")
