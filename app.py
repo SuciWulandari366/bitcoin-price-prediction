@@ -19,4 +19,4 @@ if st.button("Prediksi"):
     pred = model.predict(data)
     
     st.success(f"Prediksi Harga Bitcoin Besok: {pred[0]:,.2f}")
-
+st.write(data)
