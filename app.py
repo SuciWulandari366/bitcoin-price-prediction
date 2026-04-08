@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import lightgbm as lgb
 
-model = lgb.Booster(model_file='model_bitcoin (3).txt')
+model = lgb.Booster(model_file='model_bitcoin (4).txt')
 
 st.title("Prediksi Harga Bitcoin 🪙")
 st.write("Masukkan data hari ini untuk memprediksi harga Bitcoin besok")
