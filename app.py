@@ -3,7 +3,7 @@ import pandas as pd
 import lightgbm as lgb
 
 # Load model
-model = lgb.Booster(model_file='model_bitcoin (5).txt')
+model = lgb.Booster(model_file='model_bitcoin (4).txt')
 
 # Judul aplikasi
 st.title("Prediksi Harga Bitcoin 🪙")
